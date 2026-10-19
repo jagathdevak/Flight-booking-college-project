@@ -1,0 +1,974 @@
+/* =========================================================
+   OMEGA AIRLINES
+   Premium Airline Design
+   ========================================================= */
+
+:root {
+    --primary: #081a31;
+    --primary-light: #102b4b;
+    --accent: #d4af37;
+    --accent-light: #e8c85a;
+
+    --light: #f7f9fc;
+    --white: #ffffff;
+    --text-dark: #172337;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+
+    --transition: all 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* =========================================================
+   HEADER
+   Compatible with the current header.php
+   ========================================================= */
+
+header {
+    width: 100%;
+    min-height: 86px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5%;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    color: #ffffff;
+
+    background: rgba(8, 26, 49, 0.92);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    transition: var(--transition);
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    color: #ffffff;
+
+    font-size: 1.55rem;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+
+    transition: var(--transition);
+}
+
+.logo i {
+    font-size: 1.55rem;
+    color: #ffffff;
+
+    transition: var(--transition);
+}
+
+.logo span {
+    color: var(--accent);
+
+    transition: var(--transition);
+}
+
+.logo:hover {
+    transform: translateY(-1px);
+}
+
+.logo:hover i {
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+nav ul {
+    display: flex;
+    align-items: center;
+
+    list-style: none;
+
+    gap: 2.4rem;
+}
+
+nav a {
+    position: relative;
+
+    display: inline-block;
+
+    color: rgba(255, 255, 255, 0.88);
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    padding: 8px 0;
+
+    transition: var(--transition);
+}
+
+
+/* Hover */
+
+nav a:hover {
+    color: #ffffff;
+}
+
+
+/* Active / hover gold underline */
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -3px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--accent);
+
+    transition: var(--transition);
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+nav a.active {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   CLIENT PORTAL BUTTON
+   ========================================================= */
+
+.auth-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--accent);
+
+    color: var(--primary);
+
+    padding: 0.75rem 1.35rem;
+
+    border-radius: 5px;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    border: 1px solid transparent;
+
+    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.12);
+
+    transition: var(--transition);
+}
+
+.auth-btn:hover {
+    background: var(--accent-light);
+
+    color: var(--primary);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.22);
+}
+
+
+/* =========================================================
+   HERO
+   Works with the EXISTING inline hero styles
+   ========================================================= */
+
+.hero {
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 85vh !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    justify-content: center !important;
+    align-items: center !important;
+
+    text-align: center !important;
+
+    color: #ffffff !important;
+
+    padding: 4rem 1rem !important;
+}
+
+
+/* Hero heading */
+
+.hero h1 {
+    position: relative;
+
+    z-index: 2;
+
+    font-size: clamp(3rem, 6vw, 5.5rem) !important;
+
+    font-weight: 800 !important;
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 1.5rem !important;
+
+    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+
+    animation: heroTitle 1s ease both;
+}
+
+
+/* Hero paragraph */
+
+.hero p {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 850px;
+
+    margin: 0 auto 2rem;
+
+    font-size: 1.2rem;
+
+    line-height: 1.8;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    animation: heroParagraph 1s 0.15s ease both;
+}
+
+
+/* =========================================================
+   HERO ANIMATIONS
+   ========================================================= */
+
+@keyframes heroTitle {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes heroParagraph {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   BOOKING CONTAINER
+   ========================================================= */
+
+.booking-container {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(100%, 1000px) !important;
+
+    margin-top: 1rem;
+
+    border-radius: 14px !important;
+
+    padding: 2.2rem !important;
+
+    background: rgba(255, 255, 255, 0.97) !important;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.25) !important;
+
+    animation: bookingAppear 1s 0.25s ease both;
+}
+
+@keyframes bookingAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   BOOKING FORM
+   ========================================================= */
+
+.booking-form {
+    width: 100%;
+}
+
+
+/* Form labels */
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 0.5rem;
+
+    color: var(--text-dark);
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+
+    text-transform: uppercase;
+}
+
+
+/* Inputs */
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    padding: 0.85rem 1rem;
+
+    background: #ffffff;
+
+    color: var(--text-dark);
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 5px;
+
+    outline: none;
+
+    font-size: 0.92rem;
+
+    transition: var(--transition);
+}
+
+.form-group input::placeholder {
+    color: #94a3b8;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--accent);
+
+    box-shadow:
+        0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+
+/* =========================================================
+   ALL BUTTONS
+   ========================================================= */
+
+button {
+    transition: var(--transition);
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   INNER PAGES
+   Destinations / Experience / Support / Admin
+   ========================================================= */
+
+main {
+    animation: pageAppear 0.65s ease both;
+}
+
+@keyframes pageAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* Inner page headings */
+
+main > h1 {
+    letter-spacing: -1px;
+
+    font-weight: 700 !important;
+}
+
+
+/* Inner page paragraphs */
+
+main > p {
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   INNER PAGE CARDS
+   These enhance existing inline-styled cards
+   ========================================================= */
+
+main > div > div {
+    transition: var(--transition);
+}
+
+
+/* Destination / Experience card hover */
+
+main > div > div:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 18px 40px rgba(15, 35, 60, 0.10) !important;
+}
+
+
+/* =========================================================
+   INPUTS ON SUPPORT / ADMIN / PAYMENT
+   ========================================================= */
+
+main input,
+main textarea,
+main select {
+    transition: var(--transition);
+}
+
+main input:focus,
+main textarea:focus,
+main select:focus {
+    outline: none;
+
+    border-color: var(--accent) !important;
+
+    box-shadow:
+        0 0 0 3px rgba(212, 175, 55, 0.10);
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+table {
+    font-size: 0.9rem;
+}
+
+table tbody tr {
+    transition: background 0.25s ease;
+}
+
+table tbody tr:hover {
+    background: #f8fafc;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    background: var(--primary);
+
+    color: rgba(255, 255, 255, 0.75);
+
+    padding: 2.5rem 5%;
+
+    text-align: center;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.75);
+
+    transition: var(--transition);
+}
+
+footer a:hover {
+    color: var(--accent);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    header {
+        padding: 1rem 4%;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .logo i {
+        font-size: 1.25rem;
+    }
+
+    nav ul {
+        gap: 1.2rem;
+    }
+
+    nav a {
+        font-size: 0.82rem;
+    }
+
+    .auth-btn {
+        padding: 0.65rem 1rem;
+
+        font-size: 0.8rem;
+    }
+
+    .hero {
+        min-height: 90vh !important;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.8rem, 8vw, 4.5rem) !important;
+    }
+
+    .booking-container {
+        padding: 1.5rem !important;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    header {
+        min-height: 75px;
+        padding: 0.8rem 5%;
+    }
+
+    .logo {
+        font-size: 1.05rem;
+        letter-spacing: 1.5px;
+    }
+
+    .logo i {
+        font-size: 1.05rem;
+    }
+
+    nav ul {
+        gap: 0.75rem;
+    }
+
+    nav a {
+        font-size: 0.72rem;
+    }
+
+    .auth-btn {
+        padding: 0.55rem 0.75rem;
+        font-size: 0.72rem;
+    }
+
+    .hero {
+        min-height: auto !important;
+
+        padding:
+            7rem 1rem 4rem !important;
+    }
+
+    .hero h1 {
+        font-size: 2.7rem !important;
+
+        letter-spacing: -1.5px;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .booking-container {
+        padding: 1.2rem !important;
+
+        border-radius: 10px !important;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    header {
+        flex-wrap: wrap;
+
+        gap: 0.8rem;
+
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    nav {
+        order: 3;
+
+        width: 100%;
+    }
+
+    nav ul {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .hero h1 {
+        font-size: 2.3rem !important;
+    }
+
+}
+/* =========================================================
+   OMEGA AIRLINES — VISUAL POLISH
+   Safe add-on: does not change PHP or existing structure
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   HERO — subtle cinematic movement
+   --------------------------------------------------------- */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+
+    background-size: 105% !important;
+
+    animation: cinematicHero 18s ease-in-out infinite alternate;
+}
+
+@keyframes cinematicHero {
+    from {
+        background-size: 105%;
+        background-position: center center;
+    }
+
+    to {
+        background-size: 112%;
+        background-position: center center;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   HERO CONTENT — gentle entrance
+   --------------------------------------------------------- */
+
+.hero h1 {
+    animation:
+        heroHeadingIn 0.9s cubic-bezier(.2,.7,.2,1) both;
+}
+
+.hero p {
+    animation:
+        heroParagraphIn 0.9s 0.12s cubic-bezier(.2,.7,.2,1) both;
+}
+
+.booking-container {
+    animation:
+        bookingCardIn 0.9s 0.25s cubic-bezier(.2,.7,.2,1) both;
+}
+
+@keyframes heroHeadingIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroParagraphIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bookingCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.985);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* ---------------------------------------------------------
+   BOOKING CARD — premium glass edge
+   --------------------------------------------------------- */
+
+.booking-container {
+    border: 1px solid rgba(255, 255, 255, 0.85) !important;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.22),
+        0 4px 15px rgba(0, 0, 0, 0.06) !important;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease !important;
+}
+
+.booking-container:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 32px 80px rgba(0, 0, 0, 0.27),
+        0 5px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+
+/* ---------------------------------------------------------
+   FORM INPUTS — smoother interaction
+   --------------------------------------------------------- */
+
+.booking-container input,
+.booking-container select {
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease !important;
+}
+
+.booking-container input:hover,
+.booking-container select:hover {
+    border-color: #aebdce !important;
+}
+
+.booking-container input:focus,
+.booking-container select:focus {
+    border-color: var(--accent) !important;
+
+    box-shadow:
+        0 0 0 3px rgba(212, 175, 55, 0.12) !important;
+
+    transform: translateY(-1px);
+}
+
+
+/* ---------------------------------------------------------
+   SEARCH BUTTON — premium hover
+   --------------------------------------------------------- */
+
+.booking-container button {
+    position: relative;
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease !important;
+}
+
+.booking-container button:hover {
+    transform: translateY(-3px) !important;
+
+    box-shadow:
+        0 10px 25px rgba(8, 26, 49, 0.22);
+}
+
+.booking-container button:active {
+    transform: translateY(0) !important;
+}
+
+
+/* ---------------------------------------------------------
+   HEADER — slightly more premium
+   --------------------------------------------------------- */
+
+header {
+    transition:
+        background-color 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease !important;
+}
+
+
+/* ---------------------------------------------------------
+   LOGO — subtle interaction
+   --------------------------------------------------------- */
+
+.logo {
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease !important;
+}
+
+.logo:hover {
+    transform: translateY(-1px);
+    opacity: 0.96;
+}
+
+
+/* ---------------------------------------------------------
+   NAV — smoother links
+   --------------------------------------------------------- */
+
+nav a {
+    transition:
+        color 0.25s ease,
+        opacity 0.25s ease !important;
+}
+
+nav a:hover {
+    opacity: 1;
+}
+
+
+/* ---------------------------------------------------------
+   CLIENT PORTAL — polished hover
+   --------------------------------------------------------- */
+
+.auth-btn {
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        box-shadow 0.3s ease !important;
+}
+
+.auth-btn:hover {
+    transform: translateY(-2px) !important;
+
+    box-shadow:
+        0 8px 22px rgba(212, 175, 55, 0.22);
+}
+
+
+/* ---------------------------------------------------------
+   ACCESSIBILITY — respect reduced motion
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
+/* =====================================================
+   PAGE GAP FIX
+   Prevent unwanted white gaps between page sections
+   and the footer.
+   ===================================================== */
+
+main {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+main > section:last-child {
+    margin-bottom: 0 !important;
+}
+
+footer {
+    margin-top: 0 !important;
+}
